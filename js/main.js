@@ -38,27 +38,25 @@ function separeteCategories(e){
 }
 let entryEdad=document.getElementById("todo-entry-box")
 function divideCategories(itemnumber){
-    if (itemnumber<25){
+    if (itemnumber>=18){
     for (const producto of listaProducto){
         let card=document.createElement("div")
         card.innerHTML=
-                        `<h2> Modelo: ${producto.nombre}</h2>
-                        <p>Precio:$ ${producto.precio}</p>
-                        <p>Unidades restantes: ${producto.stock}</p>`
+                        `<div class="container principal pt-2 mb-3">
+                        <h4> Modelo: ${producto.nombre}</h4>
+                        <p>  Precio:$ ${producto.precio}</p>
+                        <p> Unidades restantes: ${producto.stock}</p>
+                        </div>`
                         document.body.appendChild(card)
     }
-} else if(itemnumber<45){
-        for (const producto of listaProductodos){
+} else if(itemnumber<18){
             let card=document.createElement("div")
             card.innerHTML=
                             
                             `<div class="container principal pt-2 mb-3">
-                            <h2> Modelo: ${producto.nombre}</h2>
-                            <p>  Precio:$ ${producto.precio}</p>
-                            <p> Unidades restantes: ${producto.stock}</p>
+                            <h2>Sos menor de edad no podes comprar</h2>
                             </div>`
                             document.body.appendChild(card)
-}
 }
 }
 let saveButton=document.getElementById("save-button")
