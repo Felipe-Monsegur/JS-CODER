@@ -3,12 +3,12 @@ function Producto (nombre, precio, stock){
     this.precio=precio
     this.stock=stock
 }
-const ProductoA = new Producto ("Samsung Galaxy A-30",40000,10)
-const ProductoB = new Producto ("Samsung Galaxy B-52",50000,15)
-const ProductoC = new Producto ("Samsung Galaxy C-72",70000,8)
-const ProductoD = new Producto ("Renault Clio",799999,577)
-const ProductoE = new Producto ("Fiat Punto",899999,220)
-const ProductoF = new Producto ("Ford Fiesta",999999,317)
+const ProductoA = new Producto ("Samsung Galaxy",900,10)
+const ProductoB = new Producto ("Motorola",700,15)
+const ProductoC = new Producto ("Iphone 13 max",1100,5)
+const ProductoD = new Producto ("Iphone 13",1000,10)
+const ProductoE = new Producto ("Iphone 12",900,10)
+const ProductoF = new Producto ("Iphone 10",600,10)
 let listaProductodos = [ProductoD, ProductoE, ProductoF]
 let InfoProductodos = []
 function listasProductodos(){
@@ -43,17 +43,20 @@ function divideCategories(itemnumber){
         let card=document.createElement("div")
         card.innerHTML=
                         `<h2> Modelo: ${producto.nombre}</h2>
-                        <p>  Precio:$ ${producto.precio}</p>
-                        <p> Unidades restantes: ${producto.stock}</p>`
+                        <p>Precio:$ ${producto.precio}</p>
+                        <p>Unidades restantes: ${producto.stock}</p>`
                         document.body.appendChild(card)
     }
 } else if(itemnumber<45){
         for (const producto of listaProductodos){
             let card=document.createElement("div")
             card.innerHTML=
-                            `<h2> Modelo: ${producto.nombre}</h2>
+                            
+                            `<div class="container principal pt-2 mb-3">
+                            <h2> Modelo: ${producto.nombre}</h2>
                             <p>  Precio:$ ${producto.precio}</p>
-                            <p> Unidades restantes: ${producto.stock}</p>`
+                            <p> Unidades restantes: ${producto.stock}</p>
+                            </div>`
                             document.body.appendChild(card)
 }
 }
