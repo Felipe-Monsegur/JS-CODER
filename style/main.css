@@ -2,6 +2,7 @@
     border: 2px solid #e43f68;
     border-radius: 20px;
     background-color: #fff;
+    margin-top: 10px;
   }
   .principal p {
     text-align: justify;
@@ -36,3 +37,24 @@
   .subtitulos {
     font-size: 1.2rem;
   }
+
+  @media only screen and (min-width: 1400px) {
+    .todo-wrapper {
+        width: 50%;
+    }
+
+    .todo-wrapper input {
+        width: 600px;
+    }
+    
+}
+
+@media only screen and (max-width: 1399px) and (min-width: 750px) {
+    .todo-wrapper {
+        width: 75%;
+    }
+
+    .todo-wrapper input {
+        width: 400px;
+    }
+}

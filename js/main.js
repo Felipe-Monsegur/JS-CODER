@@ -54,7 +54,7 @@ function divideCategories(itemnumber){
             card.innerHTML=
                             
                             `<div class="container principal pt-2 mb-3">
-                            <h2>Sos menor de edad no podes comprar</h2>
+                            <h4>Sos menor de edad no podes comprar</h4>
                             </div>`
                             document.body.appendChild(card)
 }
@@ -65,18 +65,23 @@ function saveThis(){
     sessionStorage.setItem("edadUsuario",JSON.stringify(itemnumber))
     let valor=sessionStorage.getItem("edadUsuario")
 }
-let grandescuento=document.getElementById("descuento")
+
+let descuento=document.getElementById("descuento")
 grandescuento.addEventListener("click",descuentoProducto)
 function descuentoProducto (){
                     if (itemnumber>25){
                         let promocion=document.createElement("div")
                         promocion.innerHTML=
-                        "Usted obtuvo un descuento de 5000$"
+                        `<div class="container principal pt-2 mb-3">
+                            <h2>Obtubo un descuento de 5%</h2>
+                            </div>`
                         document.body.appendChild(promocion)
                     }else if (itemnumber>45){
                         let promocion=document.createElement("div")
                         promocion.innerHTML=
-                        "Usted obtuvo un descuento de 10000$"
+                        `<div class="container principal pt-2 mb-3">
+                            <h2>Obtubo un descuento de 10%</h2>
+                            </div>`
                         document.body.appendChild(promocion)
                     }
 }
