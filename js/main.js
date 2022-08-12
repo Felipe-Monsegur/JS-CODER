@@ -5,12 +5,7 @@ let prestamosGuardados= []
 
 const username = document.getElementById("username")
 username.addEventListener("submit", validateUsername)
-function validateUsername(event) {
-    event.preventDefault()
-    let form = event.target
-    name = form[0].value
-    let nombre
-    localstorage()
+@@ -16,138 +17,172 @@ function validateUsername(event) {
 
 }
 
@@ -78,8 +73,8 @@ function prestamo(){
             display.classList.remove("d-none")
 
             let prestamos = []
-        }
-            for(let i = 0; i < cantidadPrestamos -1; i++){
+
+            for(let i = 0; i < cantidadPrestamos -1; i++){ 
                 /*Sin el menos 1 creaba dos prestamos con el mismo input en vez
                 de esperar uno nuevo (no se porque) */
 
@@ -88,7 +83,7 @@ function prestamo(){
                 prestamo.capital = 0
                 prestamo.cantidadCuotas = 0
                 prestamo.interes = 0
-            }
+
                 let formPrestamo = document.getElementById("formPrestamo")
                 formPrestamo.addEventListener("submit", validateFormPrestamo)
                 function validateFormPrestamo(event){
@@ -98,8 +93,8 @@ function prestamo(){
                     prestamo.cantidadCuotas = formPrestamo[1].value
                     prestamo.interes = formPrestamo[2].value / 100
                     prestar()
+
                 }
-                
     if(cantidadPrestamos<=2){
 
         let display = document.getElementById("display")
@@ -291,4 +286,5 @@ function cargarPrestamos(){
 
 
 }
+
 cargarPrestamos()
