@@ -5,8 +5,8 @@ function Producto (nombre, precio, stock){
 }
 const ProductoA = new Producto ("Samsung Galaxy",900,10)
 const ProductoB = new Producto ("Motorola",700,15)
-const ProductoC = new Producto ("Iphone 13 max",1100,5)
-const ProductoD = new Producto ("Iphone 13",1000,10)
+const ProductoC = new Producto ("Iphone 13",1100,5)
+const ProductoD = new Producto ("Iphone 13 max",1000,10)
 const ProductoE = new Producto ("Iphone 12",900,10)
 const ProductoF = new Producto ("Iphone 10",600,10)
 let listaProductodos = [ProductoD, ProductoE, ProductoF]
