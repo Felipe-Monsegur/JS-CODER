@@ -44,7 +44,7 @@ function divideCategories(itemnumber){
         card.innerHTML=
                         `<div class="container principal pt-2 mb-3">
                         <h4> Modelo: ${producto.nombre}</h4>
-                        <p>  Precio:$ ${producto.precio}</p>
+                        <p>  Precio: $${producto.precio}</p>
                         <p> Unidades restantes: ${producto.stock}</p>
                         </div>`
                         document.body.appendChild(card)
