@@ -1,5 +1,5 @@
 .principal {
-    border: 2px solid #2B4BEB;
+    border: 2px solid #425bd8;
     border-radius: 20px;
     background-color: #fff;
   }
@@ -8,7 +8,7 @@
     text-justify: auto;
   }
   .header {
-    background-color: #2B4BEB;
+    background-color: #425bd8;
     border-radius: 10px;
     font-weight: bold;
     color: #fff;
@@ -20,7 +20,7 @@
     color: #fff;
   }
   .header a:hover {
-    color: #2B4BEB;
+    color: #425bd8;
     background-color: #fff;
     border-radius: 10px;
   }
