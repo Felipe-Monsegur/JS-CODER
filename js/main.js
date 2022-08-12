@@ -1,290 +1,81 @@
-let cantidadPrestamos = 0
-let name
-let nombre
-let prestamosGuardados= []
-
-const username = document.getElementById("username")
-username.addEventListener("submit", validateUsername)
-@@ -16,138 +17,172 @@ function validateUsername(event) {
-
+function Producto (nombre, precio, stock){
+    this.nombre=nombre
+    this.precio=precio
+    this.stock=stock
 }
-
-    function localstorage(){
-    localStorage.setItem("name",name)
-    nombre = localStorage.getItem("name")
+const ProductoA = new Producto ("Samsung Galaxy A-30",40000,10)
+const ProductoB = new Producto ("Samsung Galaxy B-52",50000,15)
+const ProductoC = new Producto ("Samsung Galaxy C-72",70000,8)
+const ProductoD = new Producto ("Renault Clio",799999,577)
+const ProductoE = new Producto ("Fiat Punto",899999,220)
+const ProductoF = new Producto ("Ford Fiesta",999999,317)
+let listaProductodos = [ProductoD, ProductoE, ProductoF]
+let InfoProductodos = []
+function listasProductodos(){
+    for (const producto of listaProductodos){
+        InfoProductodos.push (producto.nombre)
+        InfoProductodos.push (producto.precio)
+        InfoProductodos.push (producto.stock)
     }
-function localstorage(){
-localStorage.setItem("name",name)
-nombre = localStorage.getItem("name")
 }
-
-    const formulario = document.getElementById("formulario")
-    formulario.addEventListener("submit", validateForm)
-    function validateForm(event){
-        event.preventDefault()
-        let form = event.target
-        cantidadPrestamos = form[0].value
-        prestamo()
+listasProductodos()
+let listaProducto= [ProductoA, ProductoB, ProductoC]
+let InfoProducto = []
+function listasProducto (){
+    for (const producto of listaProducto){
+        InfoProducto.push (producto.nombre)
+        InfoProducto.push (producto.precio)
+        InfoProducto.push (producto.stock)
     }
-const formulario = document.getElementById("formulario")
-formulario.addEventListener("submit", validateForm)
-function validateForm(event){
-    event.preventDefault()
-    let form = event.target
-    cantidadPrestamos = form[0].value
-    prestamo()
+}    
+listasProducto()
+let addButton=document.getElementById("add-button")
+addButton.addEventListener("click", separeteCategories)
+function separeteCategories(e){
+    e.preventDefault()
+    let itemnumber=entryEdad.value
+    divideCategories(itemnumber)
 }
-
-    function Prestamo(capital, cantidadCuotas, interes, cuotaMes, devolucionTotal) {
-        this.capital = capital
-        this.cantidadCuotas = cantidadCuotas
-        this.interes = interes
-        this.cuotaMes = cuotaMes
-        this.devolucionTotal = devolucionTotal
+let entryEdad=document.getElementById("todo-entry-box")
+function divideCategories(itemnumber){
+    if (itemnumber<25){
+    for (const producto of listaProducto){
+        let card=document.createElement("div")
+        card.innerHTML=
+                        `<h2> Modelo: ${producto.nombre}</h2>
+                        <p>  Precio:$ ${producto.precio}</p>
+                        <p> Unidades restantes: ${producto.stock}</p>`
+                        document.body.appendChild(card)
     }
-function Prestamo(capital, cantidadCuotas, interes, cuotaMes, devolucionTotal) {
-    this.capital = capital
-    this.cantidadCuotas = cantidadCuotas
-    this.interes = interes
-    this.cuotaMes = cuotaMes
-    this.devolucionTotal = devolucionTotal
+} else if(itemnumber<45){
+        for (const producto of listaProductodos){
+            let card=document.createElement("div")
+            card.innerHTML=
+                            `<h2> Modelo: ${producto.nombre}</h2>
+                            <p>  Precio:$ ${producto.precio}</p>
+                            <p> Unidades restantes: ${producto.stock}</p>`
+                            document.body.appendChild(card)
 }
-
-
-    function prestamo(){
-function prestamo(){
-
-        const contenedor = document.getElementById("contenedor")
-        const lista = document.getElementById("lista")
-        function classContenedor() {
-            contenedor.className= "container principal subtitulos p-3"
-            lista.className="list-group list-group-flush"
-                }
-    const contenedor = document.getElementById("contenedor")
-    const lista = document.getElementById("lista")
-    function classContenedor() {
-        contenedor.className= "container principal subtitulos p-3"
-        lista.className="list-group list-group-flush"
-            }
-
-        if(cantidadPrestamos<=2){
-
-            let display = document.getElementById("display")
-            display.classList.remove("d-none")
-
-            let prestamos = []
-
-            for(let i = 0; i < cantidadPrestamos -1; i++){ 
-                /*Sin el menos 1 creaba dos prestamos con el mismo input en vez
-                de esperar uno nuevo (no se porque) */
-
-                let prestamo = new Prestamo(0,0,0,0,0)
-
-                prestamo.capital = 0
-                prestamo.cantidadCuotas = 0
-                prestamo.interes = 0
-
-                let formPrestamo = document.getElementById("formPrestamo")
-                formPrestamo.addEventListener("submit", validateFormPrestamo)
-                function validateFormPrestamo(event){
-                    event.preventDefault()
-                    let formPrestamo = event.target
-                    prestamo.capital = formPrestamo[0].value
-                    prestamo.cantidadCuotas = formPrestamo[1].value
-                    prestamo.interes = formPrestamo[2].value / 100
-                    prestar()
-
-                }
-    if(cantidadPrestamos<=2){
-
-        let display = document.getElementById("display")
-        display.classList.remove("d-none")
-
-        let prestamos = []
-
-        for(let i = 0; i < cantidadPrestamos -1; i++){ 
-            /*Sin el menos 1 creaba dos prestamos con el mismo input en vez
-            de esperar uno nuevo (no se porque) */
-
-            let prestamo = new Prestamo(0,0,0,0,0)
-
-            prestamo.capital = 0
-            prestamo.cantidadCuotas = 0
-            prestamo.interes = 0
-
-            let formPrestamo = document.getElementById("formPrestamo")
-            formPrestamo.addEventListener("submit", validateFormPrestamo)
-            function validateFormPrestamo(event){
-                event.preventDefault()
-                let formPrestamo = event.target
-                prestamo.capital = formPrestamo[0].value
-                prestamo.cantidadCuotas = formPrestamo[1].value
-                prestamo.interes = formPrestamo[2].value / 100
-                prestar()
-
-            }
-
-        function prestar(){
-
-            function tasa (interes){
-            return (1 + interes) ** (1/12) - 1
-            }; 
-            function cuotaMensual (capital, interes, cuotas){
-            prestamo.cuotaMes = (tasa(interes) * capital) / (1 - (1 + tasa(interes)) ** - cuotas)
-            }; 
-            function devolucionTotal(cuotaMensual, cuotas){
-            prestamo.devolucionTotal = cuotaMensual * cuotas    
-            };
-
-        if (prestamos.length < 2){
-        /*este if es para que no pueda crear mas prestamos despues de 2
-        pero si pone 1 le deja llegar a 2, falta resolver*/        
-            if(prestamo.capital >= 10000){
-                if(prestamo.cantidadCuotas <=60){
-                    tasa(prestamo.interes)
-                    cuotaMensual(prestamo.capital, tasa(prestamo.interes), prestamo.cantidadCuotas)
-                    devolucionTotal(prestamo.cuotaMes, prestamo.cantidadCuotas) 
-                    prestamos.push(prestamo)
-                    console.log(prestamos)//esto despues hay que borrarlo
-
-            function prestar(){
-
-                function tasa (interes){
-                return (1 + interes) ** (1/12) - 1
-                }; 
-                function cuotaMensual (capital, interes, cuotas){
-                prestamo.cuotaMes = (tasa(interes) * capital) / (1 - (1 + tasa(interes)) ** - cuotas)
-                }; 
-                function devolucionTotal(cuotaMensual, cuotas){
-                prestamo.devolucionTotal = cuotaMensual * cuotas    
-                };
-
-            if (prestamos.length < 2){
-            /*este if es para que no pueda crear mas prestamos despues de 2
-            pero si pone 1 le deja llegar a 2, falta resolver*/        
-                if(prestamo.capital >= 10000){
-                    if(prestamo.cantidadCuotas <=60){
-                        tasa(prestamo.interes)
-                        cuotaMensual(prestamo.capital, tasa(prestamo.interes), prestamo.cantidadCuotas)
-                        devolucionTotal(prestamo.cuotaMes, prestamo.cantidadCuotas) 
-                        prestamos.push(prestamo)
-                        console.log(prestamos)//esto despues hay que borrarlo
-
+}
+}
+let saveButton=document.getElementById("save-button")
+saveButton.addEventListener("click",saveThis)
+function saveThis(){
+    sessionStorage.setItem("edadUsuario",JSON.stringify(itemnumber))
+    let valor=sessionStorage.getItem("edadUsuario")
+}
+let grandescuento=document.getElementById("descuento")
+grandescuento.addEventListener("click",descuentoProducto)
+function descuentoProducto (){
+                    if (itemnumber>25){
+                        let promocion=document.createElement("div")
+                        promocion.innerHTML=
+                        "Usted obtuvo un descuento de 5000$"
+                        document.body.appendChild(promocion)
+                    }else if (itemnumber>45){
+                        let promocion=document.createElement("div")
+                        promocion.innerHTML=
+                        "Usted obtuvo un descuento de 10000$"
+                        document.body.appendChild(promocion)
                     }
-                    else{                        
-                        contenedor.innerHTML= nombre + ", excediste la cantidad de cuotas habilitadas"
-                        classContenedor()
-                    } 
-                }
-                else{
-                    contenedor.innerHTML= nombre + ", el monto solicitado es insuficiente. El minimo es $10.000"
-                else{                        
-                    contenedor.innerHTML= nombre + ", excediste la cantidad de cuotas habilitadas"
-                    classContenedor()
-                }
-                } 
-            }
-            else{
-              let maxPrestamo = document.getElementById("maxPrestamo")
-              maxPrestamo.className="container principal subtitulos p-3 mb-3"
-              maxPrestamo.innerText= nombre + ", alcanzaste el maximo de prestamos posibles"
-            }    
-
-                for (const prestamo of prestamos){
-
-                    classContenedor()
-                    let node= document.createElement("li")
-                    node.className= "list-group-item"                        
-                    node.innerHTML = `<h3>Solicitaste: 
-                    $${prestamo.capital}</h3>
-                    <p>El interes que queres pagar es ${(prestamo.interes * 100).toFixed(2)}%</p>
-                    <p>En: ${prestamo.cantidadCuotas} cuotas</p>
-                    <p>Cada cuota será de: 
-                    $${prestamo.cuotaMes.toLocaleString(undefined, {
-                        minimumFractionDigits: 2,
-                        maximumFractionDigits: 2})}</p>
-                    <p>Vas a devolver en total 
-                        $${prestamo.devolucionTotal.toLocaleString(undefined, {
-                            minimumFractionDigits: 2,
-                            maximumFractionDigits: 2})}</p>`
-                    lista.append(node)
-                    contenedor.append(lista)
-
-                }   
-                contenedor.innerHTML= nombre + ", el monto solicitado es insuficiente. El minimo es $10.000"
-                classContenedor()
-            }
-        }
-    }
-        else{
-            contenedor.innerHTML= nombre + ', El maximo de prestamos a solicitar es 2'
-            classContenedor()
-          let maxPrestamo = document.getElementById("maxPrestamo")
-          maxPrestamo.className="container principal subtitulos p-3 mb-3"
-          maxPrestamo.innerText= nombre + ", alcanzaste el maximo de prestamos posibles"
-        }    
-
-            for (const prestamo of prestamos){
-
-                classContenedor()
-                let node= document.createElement("li")
-                node.className= "list-group-item"                        
-                node.innerHTML = `<h3>Solicitaste: 
-                $${prestamo.capital}</h3>
-                <p>El interes que queres pagar es ${(prestamo.interes * 100).toFixed(2)}%</p>
-                <p>En: ${prestamo.cantidadCuotas} cuotas</p>
-                <p>Cada cuota será de: 
-                $${prestamo.cuotaMes.toLocaleString(undefined, {
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2})}</p>
-                <p>Vas a devolver en total 
-                    $${prestamo.devolucionTotal.toLocaleString(undefined, {
-                        minimumFractionDigits: 2,
-                        maximumFractionDigits: 2})}</p>`
-                lista.append(node)
-                contenedor.append(lista)
-                saveButton.className="container pretty-button"
-
-            }   
-        }
-
-        let saveButton = document.getElementById("save-button")
-        saveButton.addEventListener("click", guardarPrestamos)
-
-        function guardarPrestamos(){
-
-
-        prestamosGuardados.push(prestamos)
-        console.log(prestamosGuardados)
-        localStorage.setItem("guardaPrestamos", JSON.stringify(prestamosGuardados))
-        }
-
-    }
 }
-    else{
-        contenedor.innerHTML= nombre + ', El maximo de prestamos a solicitar es 2'
-        classContenedor()
-    }
-}
-
-function cargarPrestamos(){
-    let prestamosAnteriores = JSON.parse(localStorage.getItem("guardaPrestamos"))
-    console.log(prestamosAnteriores)/*
-    
-                let node= document.createElement("li")
-                node.className= "list-group-item"                        
-                node.innerHTML = `<h3>Solicitaste: 
-                $${prestamosGuardados.capital}</h3>
-                <p>El interes que queres pagar es ${(prestamosGuardados.interes * 100).toFixed(2)}%</p>
-                <p>En: ${prestamosGuardados.cantidadCuotas} cuotas</p>
-                <p>Cada cuota será de: 
-                $${prestamosGuardados.cuotaMes}</p>
-                <p>Vas a devolver en total 
-                    $${prestamosGuardados.devolucionTotal}</p>`
-                lista.append(node)
-                contenedor.append(lista)*/
-
-
-}
-
-cargarPrestamos()
