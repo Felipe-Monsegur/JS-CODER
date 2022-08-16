@@ -75,9 +75,13 @@ function saveThis(){
     let valor=sessionStorage.getItem("edadUsuario")
 }
 
+
+
+                       /*descuentooo*/
 let descuento=document.getElementById("descuento")
 descuento.addEventListener("click",descuentoProducto)
-function descuentoProducto (){
+function descuentoProducto(){
+    
                     if (itemnumber>25){
                         let promocion=document.createElement("div")
                         promocion.innerHTML=
@@ -93,4 +97,45 @@ function descuentoProducto (){
                             </div>`
                         document.body.appendChild(promocion)
                     }
-}
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* intento de que funcione el tener un descuento hacien do lo igual que el de productos, no funciona
+                    let descuento=document.getElementById("decuento")
+                    descuento.addEventListener("click", descuentoProducto)
+                    function descuentoProducto(e){
+                        e.preventDefault()
+                        let itemnumber=entryEdad.value
+                        divideCategories(itemnumber)
+                    }
+                    let entryEdad=document.getElementById("todo-entry-box")
+                    function divideCategories(itemnumber){
+                        if (itemnumber>25){
+                            let promocion=document.createElement("div")
+                            promocion.innerHTML=
+                            `<div class="container principal pt-2 mb-3">
+                                <h2>Obtubo un descuento de 5%</h2>
+                                </div>`
+                            document.body.appendChild(promocion)
+                        }else if (itemnumber>45){
+                            let promocion=document.createElement("div")
+                            promocion.innerHTML=
+                            `<div class="container principal pt-2 mb-3">
+                                <h2>Obtubo un descuento de 10%</h2>
+                                </div>`
+                            document.body.appendChild(promocion)
+                        }
+    */
