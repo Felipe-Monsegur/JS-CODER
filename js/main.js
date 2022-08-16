@@ -58,6 +58,15 @@ function divideCategories(itemnumber){
                             </div>`
                             document.body.appendChild(card)
 }
+if(itemnumber<0){
+    let card=document.createElement("div")
+    card.innerHTML=
+                    
+                    `<div class="container principal pt-2 mb-3">
+                    <h4>error no podes tener años negativos</h4>
+                    </div>`
+                    document.body.appendChild(card)
+}
 }
 let saveButton=document.getElementById("save-button")
 saveButton.addEventListener("click",saveThis)
@@ -67,7 +76,7 @@ function saveThis(){
 }
 
 let descuento=document.getElementById("descuento")
-grandescuento.addEventListener("click",descuentoProducto)
+descuento.addEventListener("click",descuentoProducto)
 function descuentoProducto (){
                     if (itemnumber>25){
                         let promocion=document.createElement("div")
